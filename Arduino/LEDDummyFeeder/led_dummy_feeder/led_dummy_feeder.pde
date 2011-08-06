@@ -20,6 +20,8 @@ void setup() {
   pinMode(GREEN_PIN, OUTPUT); 
   pinMode(BLUE_PIN, OUTPUT); 
   Serial.begin(9600);
+  
+  analogWrite(active_pin, MAX);
 }
 
 void loop() {
