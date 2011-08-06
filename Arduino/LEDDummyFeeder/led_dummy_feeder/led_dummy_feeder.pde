@@ -13,6 +13,8 @@ int MAX = 255;
 int OFF = 0;
 int active_pin = RED_PIN; // start out with red
 
+void set_lights(int r, int g, int b);
+void flash_ready_lights();
 void feed_the_dog();
 
 void setup() {
@@ -21,19 +23,39 @@ void setup() {
   pinMode(BLUE_PIN, OUTPUT); 
   Serial.begin(9600);
   
-  analogWrite(active_pin, MAX);
+  flash_ready_lights();
 }
 
 void loop() {
   if (Serial.available() > 0) {
-    switch (Serial.read()) {
-    case 'F':    
+    int inByte = Serial.read();
+    
+    switch (inByte) {
+    case 1:    
+      analogWrite(BLUE_PIN, MAX);
       feed_the_dog();
       break;
     default:
+      analogWrite(GREEN_PIN, MAX);
       break;
     } 
   }
+}
+
+void set_lights(int r, int g, int b) {
+  analogWrite(RED_PIN, r);
+  analogWrite(GREEN_PIN, g);
+  analogWrite(BLUE_PIN, b);
+}
+
+void flash_ready_lights() {
+  set_lights(MAX, OFF, OFF);
+  delay(500);
+  set_lights(OFF, MAX, OFF);
+  delay(500);
+  set_lights(OFF, OFF, MAX);
+  delay(500);
+  set_lights(OFF, OFF, OFF);
 }
 
 void feed_the_dog() {

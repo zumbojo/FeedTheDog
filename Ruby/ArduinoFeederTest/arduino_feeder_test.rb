@@ -16,7 +16,7 @@ parity = SerialPort::NONE
 
 sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
 
-sp.putc(?a);
+sp.putc(1);
 
 sp.close
 
