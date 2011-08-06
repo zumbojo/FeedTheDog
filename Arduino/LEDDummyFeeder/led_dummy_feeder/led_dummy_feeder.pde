@@ -11,7 +11,7 @@ int GREEN_PIN = 5;  // GREEN pin of the LED to PWM pin 5
 int BLUE_PIN = 6;   // BLUE pin of the LED to PWM pin 6
 int MAX = 255;
 int OFF = 0;
-int red, green, blue = 0;
+int active_pin = RED_PIN; // start out with red
 
 void feed_the_dog();
 
@@ -23,11 +23,32 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly: 
-  
+  if (Serial.available() > 0) {
+    switch (Serial.read()) {
+    case 'F':    
+      feed_the_dog();
+      break;
+    default:
+      break;
+    } 
+  }
 }
 
 void feed_the_dog() {
-  // todo
+  // clear all pins:
+  analogWrite(RED_PIN, OFF);
+  analogWrite(GREEN_PIN, OFF);
+  analogWrite(BLUE_PIN, OFF);
+  
+  // change active pin
+  if (active_pin != BLUE_PIN) {
+    active_pin++;
+  }
+  else {
+    active_pin = RED_PIN; // if we are at the last pin, cycle back to the first
+  }
+  
+  // light up this new active pin:
+  analogWrite(active_pin, MAX);
 }
 
