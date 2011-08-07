@@ -32,11 +32,9 @@ void loop() {
     
     switch (inByte) {
     case 1:    
-      analogWrite(BLUE_PIN, MAX);
       feed_the_dog();
       break;
     default:
-      analogWrite(GREEN_PIN, MAX);
       break;
     } 
   }
