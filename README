@@ -1,0 +1,5 @@
+Notes:
+
+- Prevent reset on serial traffic by connecting a 120 ohm resistor
+   to RESET and 5V 
+   - Note that this will prevent uploading while the resistor is connected.
