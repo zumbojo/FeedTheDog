@@ -7,6 +7,7 @@ class CreateNonces < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :nonces, :signed_nonce
   end
 
   def self.down
