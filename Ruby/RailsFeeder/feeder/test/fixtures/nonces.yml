@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  unsigned_nonce: MyString
+  signed_nonce: MyString
+  used_at: 2011-08-08 19:43:00
+
+two:
+  unsigned_nonce: MyString
+  signed_nonce: MyString
+  used_at: 2011-08-08 19:43:00
