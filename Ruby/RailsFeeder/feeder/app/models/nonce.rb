@@ -9,8 +9,9 @@ class Nonce < ActiveRecord::Base
       32.times { @unsigned << ('a'..'z').to_a[rand(26)] }
       self.unsigned_nonce = @unsigned
 
-      # self.signed_nonce = Digest::SHA2.hexdigest(@unsigned + private_key)
-      # todo
+      @private_key = "pnwmrpjitekvmoyhrjkgbdcrghxkgqzc"
+        # todo: roll a new key, put in non-versioned file
+      self.signed_nonce = Digest::SHA2.hexdigest(@unsigned + @private_key)
     end
 
 end
