@@ -1,5 +1,5 @@
 class NoncesController < ApplicationController
-  def new
+  def create
     render :text => "nonce motherfucker!"
   end
 
