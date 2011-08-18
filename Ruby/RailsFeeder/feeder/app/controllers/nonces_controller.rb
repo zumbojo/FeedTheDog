@@ -1,6 +1,11 @@
 class NoncesController < ApplicationController
   def create
-    render :text => "nonce motherfucker!"
+    @nonce = Nonce.create
+    if @nonce.save
+      render :text => @nonce.unsigned_nonce
+    else
+      render :text => "failure"
+    end
   end
 
   def use
