@@ -1,5 +1,6 @@
 Feeder::Application.routes.draw do
   get "nonces/new"
+  post "nonces/use"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
