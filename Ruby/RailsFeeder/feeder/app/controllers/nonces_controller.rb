@@ -9,15 +9,14 @@ class NoncesController < ApplicationController
   end
 
   def use
-    # render :text => params[:signed_nonce]
-    # render :text => "failure"
-
     nonce = Nonce.find_by_signed_nonce(params[:signed_nonce])
 
     if !nonce.nil? && nonce.used_at.nil?
       nonce.used_at = DateTime.now
 
       if nonce.save
+        # todo: activate arduino
+
         render :text => "success"
       else
         render :text => "failure"
@@ -25,18 +24,6 @@ class NoncesController < ApplicationController
     else
       render :text => "failure"
     end
-      
-
-
-
-    # render :text => nonce.unsigned_nonce
-    # pseudo:
-    # accept signed_nonce from browser
-    # check db for signed_nonce, where used date is nil
-    # if found, set used date and save row
-    # if row saved, perform feeding routine
-    # return success
-    # all other conditions return failure
   end
 
 end
