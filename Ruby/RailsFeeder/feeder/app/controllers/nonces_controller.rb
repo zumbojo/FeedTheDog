@@ -11,7 +11,10 @@ class NoncesController < ApplicationController
   def use
     nonce = Nonce.find_by_signed_nonce(params[:signed_nonce])
 
-    if !nonce.nil? && nonce.used_at.nil?
+    if !nonce.nil? &&
+      nonce.used_at.nil? &&
+      nonce.created_at.advance(:minutes => 10) >= DateTime.now
+
       nonce.used_at = DateTime.now
 
       if nonce.save
