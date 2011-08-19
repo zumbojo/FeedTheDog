@@ -3,3 +3,9 @@ Notes:
 - Prevent reset on serial traffic by connecting a 120 ohm resistor
    to RESET and 5V 
    - Note that this will prevent uploading while the resistor is connected.
+
+
+- Roll yourself a private key, something along the lines of:
+PRIVATE_KEY = "dontactuallyusethisstringyoupillock"
+  and throw it in (the gitignored file) config/initializers/constants.rb
+  # idea from http://stackoverflow.com/questions/1107782/wheres-the-best-place-to-define-a-constant-in-a-ruby-on-rails-application/1108064#1108064
