@@ -19,7 +19,7 @@ class NoncesController < ApplicationController
 
         render :text => "success"
       else
-        render :text => "failure"
+        break
       end
     else
       render :text => "failure"
