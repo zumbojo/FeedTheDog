@@ -7,5 +7,8 @@ Notes:
 
 - Roll yourself a private key, something along the lines of:
 PRIVATE_KEY = "dontactuallyusethisstringyoupillock"
+  (you can roll your own in irb using
+(0..31).collect { ('a'..'z').to_a[rand(26)] }.join
+  )
   and throw it in (the gitignored file) config/initializers/constants.rb
   # idea from http://stackoverflow.com/questions/1107782/wheres-the-best-place-to-define-a-constant-in-a-ruby-on-rails-application/1108064#1108064
