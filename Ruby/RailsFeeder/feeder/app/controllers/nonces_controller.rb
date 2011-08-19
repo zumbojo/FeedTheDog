@@ -13,7 +13,23 @@ class NoncesController < ApplicationController
     # render :text => "failure"
 
     nonce = Nonce.find_by_signed_nonce(params[:signed_nonce])
-    render :text => nonce.unsigned_nonce
+
+    if !nonce.nil? && nonce.used_at.nil?
+      nonce.used_at = DateTime.now
+
+      if nonce.save
+        render :text => "success"
+      else
+        render :text => "failure"
+      end
+    else
+      render :text => "failure"
+    end
+      
+
+
+
+    # render :text => nonce.unsigned_nonce
     # pseudo:
     # accept signed_nonce from browser
     # check db for signed_nonce, where used date is nil
