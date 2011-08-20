@@ -173,18 +173,11 @@
 			isa = PBXGroup;
 			children = (
 				CE2891E314003B8E00FC3484 /* External */,
-				CE2891AD14001C9C00FC3484 /* FeedTheDogAppDelegate.h */,
-				CE2891AE14001C9C00FC3484 /* FeedTheDogAppDelegate.m */,
-				CE2891B014001C9D00FC3484 /* MainWindow.xib */,
-				CE2891B314001C9D00FC3484 /* MainViewController.h */,
-				CE2891B414001C9D00FC3484 /* MainViewController.m */,
-				CE2891B614001C9D00FC3484 /* MainView.xib */,
-				CE2891B814001C9D00FC3484 /* FlipsideViewController.h */,
-				CE2891B914001C9D00FC3484 /* FlipsideViewController.m */,
-				CE2891BB14001C9D00FC3484 /* FlipsideView.xib */,
+				CE28920D14003EEA00FC3484 /* Singleton */,
+				CE28920E14003EF700FC3484 /* MainView */,
+				CE28920F14003F0200FC3484 /* FlipsideView */,
+				CE28921014003F7000FC3484 /* App Delegate, root nib, etc. */,
 				CE2891A514001C9C00FC3484 /* Supporting Files */,
-				CE2891E014003B4700FC3484 /* Feeder.h */,
-				CE2891E114003B4700FC3484 /* Feeder.m */,
 			);
 			path = FeedTheDog;
 			sourceTree = "<group>";
@@ -255,6 +248,45 @@
 				CE2891F914003C3300FC3484 /* ASIInputStream.h */,
 			);
 			name = ASI;
+			sourceTree = "<group>";
+		};
+		CE28920D14003EEA00FC3484 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				CE2891E014003B4700FC3484 /* Feeder.h */,
+				CE2891E114003B4700FC3484 /* Feeder.m */,
+			);
+			name = Singleton;
+			sourceTree = "<group>";
+		};
+		CE28920E14003EF700FC3484 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				CE2891B314001C9D00FC3484 /* MainViewController.h */,
+				CE2891B414001C9D00FC3484 /* MainViewController.m */,
+				CE2891B614001C9D00FC3484 /* MainView.xib */,
+			);
+			name = MainView;
+			sourceTree = "<group>";
+		};
+		CE28920F14003F0200FC3484 /* FlipsideView */ = {
+			isa = PBXGroup;
+			children = (
+				CE2891B814001C9D00FC3484 /* FlipsideViewController.h */,
+				CE2891B914001C9D00FC3484 /* FlipsideViewController.m */,
+				CE2891BB14001C9D00FC3484 /* FlipsideView.xib */,
+			);
+			name = FlipsideView;
+			sourceTree = "<group>";
+		};
+		CE28921014003F7000FC3484 /* App Delegate, root nib, etc. */ = {
+			isa = PBXGroup;
+			children = (
+				CE2891AD14001C9C00FC3484 /* FeedTheDogAppDelegate.h */,
+				CE2891AE14001C9C00FC3484 /* FeedTheDogAppDelegate.m */,
+				CE2891B014001C9D00FC3484 /* MainWindow.xib */,
+			);
+			name = "App Delegate, root nib, etc.";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
