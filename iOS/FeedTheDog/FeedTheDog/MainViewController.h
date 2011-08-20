@@ -7,8 +7,9 @@
 //
 
 #import "FlipsideViewController.h"
+#import "Feeder.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate> {
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, FeedInitiatingViewController> {
 	IBOutlet UIButton *feedButton;
 	IBOutlet UIActivityIndicatorView* spinner;
 }
@@ -18,5 +19,8 @@
 
 - (IBAction)showInfo:(id)sender;
 - (IBAction)FeedButtonPressed:(id)sender;
+
+// FeedInitiatingViewController:
+- (void)FeedDidFinish;
 
 @end

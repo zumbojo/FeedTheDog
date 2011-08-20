@@ -7,7 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import "Feeder.h"
 
 @implementation MainViewController
 
@@ -40,7 +39,8 @@
 
 - (IBAction)FeedButtonPressed:(id)sender
 {
-    [[Feeder sharedFeeder] feed];
+    [self.spinner startAnimating];
+    [[Feeder sharedFeeder] feedFromViewController:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -63,6 +63,12 @@
 
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+#pragma mark FeedInitiatingViewController:
+- (void)FeedDidFinish
+{
+    [self.spinner stopAnimating];
 }
 
 @end

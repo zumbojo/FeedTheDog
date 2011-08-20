@@ -18,6 +18,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
 
 @synthesize url;
 @synthesize key;
+@synthesize feedInitiatingViewController;
 
 #pragma mark NSUserDefaults
 - (void)loadDefaults
@@ -40,9 +41,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
 }
 
 #pragma -
-- (void)feed
+- (void)feedFromViewController:(UIViewController<FeedInitiatingViewController> *)viewController
 {
+    self.feedInitiatingViewController = viewController;
+    
+    // for testing:
     NSLog(@"feed");
+    [self.feedInitiatingViewController FeedDidFinish];
 }
+
+// todo: do the network stuff, when finished call [self.feedInitiatingViewController FeedDidFinish]
 
 @end
