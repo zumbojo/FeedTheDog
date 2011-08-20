@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE28919F14001C9C00FC3484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE28919E14001C9C00FC3484 /* UIKit.framework */; };
+		CE2891A114001C9C00FC3484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2891A014001C9C00FC3484 /* Foundation.framework */; };
+		CE2891A314001C9C00FC3484 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2891A214001C9C00FC3484 /* CoreGraphics.framework */; };
+		CE2891A914001C9C00FC3484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE2891A714001C9C00FC3484 /* InfoPlist.strings */; };
+		CE2891AB14001C9C00FC3484 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2891AA14001C9C00FC3484 /* main.m */; };
+		CE2891AF14001C9C00FC3484 /* FeedTheDogAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2891AE14001C9C00FC3484 /* FeedTheDogAppDelegate.m */; };
+		CE2891B214001C9D00FC3484 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2891B014001C9D00FC3484 /* MainWindow.xib */; };
+		CE2891B514001C9D00FC3484 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2891B414001C9D00FC3484 /* MainViewController.m */; };
+		CE2891B714001C9D00FC3484 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2891B614001C9D00FC3484 /* MainView.xib */; };
+		CE2891BA14001C9D00FC3484 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2891B914001C9D00FC3484 /* FlipsideViewController.m */; };
+		CE2891BC14001C9D00FC3484 /* FlipsideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2891BB14001C9D00FC3484 /* FlipsideView.xib */; };
+		CE2891C414001C9D00FC3484 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2891C314001C9D00FC3484 /* SenTestingKit.framework */; };
+		CE2891C514001C9D00FC3484 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE28919E14001C9C00FC3484 /* UIKit.framework */; };
+		CE2891C614001C9D00FC3484 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2891A014001C9C00FC3484 /* Foundation.framework */; };
+		CE2891C714001C9D00FC3484 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2891A214001C9C00FC3484 /* CoreGraphics.framework */; };
+		CE2891CF14001C9D00FC3484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE2891CD14001C9D00FC3484 /* InfoPlist.strings */; };
+		CE2891D114001C9D00FC3484 /* FeedTheDogTests.h in Resources */ = {isa = PBXBuildFile; fileRef = CE2891D014001C9D00FC3484 /* FeedTheDogTests.h */; };
+		CE2891D314001C9D00FC3484 /* FeedTheDogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2891D214001C9D00FC3484 /* FeedTheDogTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE2891C814001C9D00FC3484 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE28919114001C9C00FC3484 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE28919914001C9C00FC3484;
+			remoteInfo = FeedTheDog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE28919A14001C9C00FC3484 /* FeedTheDog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedTheDog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE28919E14001C9C00FC3484 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CE2891A014001C9C00FC3484 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CE2891A214001C9C00FC3484 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CE2891A614001C9C00FC3484 /* FeedTheDog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FeedTheDog-Info.plist"; sourceTree = "<group>"; };
+		CE2891A814001C9C00FC3484 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CE2891AA14001C9C00FC3484 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CE2891AC14001C9C00FC3484 /* FeedTheDog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedTheDog-Prefix.pch"; sourceTree = "<group>"; };
+		CE2891AD14001C9C00FC3484 /* FeedTheDogAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedTheDogAppDelegate.h; sourceTree = "<group>"; };
+		CE2891AE14001C9C00FC3484 /* FeedTheDogAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedTheDogAppDelegate.m; sourceTree = "<group>"; };
+		CE2891B114001C9D00FC3484 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		CE2891B314001C9D00FC3484 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		CE2891B414001C9D00FC3484 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		CE2891B614001C9D00FC3484 /* MainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
+		CE2891B814001C9D00FC3484 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		CE2891B914001C9D00FC3484 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		CE2891BB14001C9D00FC3484 /* FlipsideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlipsideView.xib; sourceTree = "<group>"; };
+		CE2891C214001C9D00FC3484 /* FeedTheDogTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedTheDogTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2891C314001C9D00FC3484 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		CE2891CC14001C9D00FC3484 /* FeedTheDogTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FeedTheDogTests-Info.plist"; sourceTree = "<group>"; };
+		CE2891CE14001C9D00FC3484 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CE2891D014001C9D00FC3484 /* FeedTheDogTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedTheDogTests.h; sourceTree = "<group>"; };
+		CE2891D214001C9D00FC3484 /* FeedTheDogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedTheDogTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE28919714001C9C00FC3484 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE28919F14001C9C00FC3484 /* UIKit.framework in Frameworks */,
+				CE2891A114001C9C00FC3484 /* Foundation.framework in Frameworks */,
+				CE2891A314001C9C00FC3484 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE2891BE14001C9D00FC3484 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2891C414001C9D00FC3484 /* SenTestingKit.framework in Frameworks */,
+				CE2891C514001C9D00FC3484 /* UIKit.framework in Frameworks */,
+				CE2891C614001C9D00FC3484 /* Foundation.framework in Frameworks */,
+				CE2891C714001C9D00FC3484 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE28918F14001C9C00FC3484 = {
+			isa = PBXGroup;
+			children = (
+				CE2891A414001C9C00FC3484 /* FeedTheDog */,
+				CE2891CA14001C9D00FC3484 /* FeedTheDogTests */,
+				CE28919D14001C9C00FC3484 /* Frameworks */,
+				CE28919B14001C9C00FC3484 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE28919B14001C9C00FC3484 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE28919A14001C9C00FC3484 /* FeedTheDog.app */,
+				CE2891C214001C9D00FC3484 /* FeedTheDogTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE28919D14001C9C00FC3484 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE28919E14001C9C00FC3484 /* UIKit.framework */,
+				CE2891A014001C9C00FC3484 /* Foundation.framework */,
+				CE2891A214001C9C00FC3484 /* CoreGraphics.framework */,
+				CE2891C314001C9D00FC3484 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE2891A414001C9C00FC3484 /* FeedTheDog */ = {
+			isa = PBXGroup;
+			children = (
+				CE2891AD14001C9C00FC3484 /* FeedTheDogAppDelegate.h */,
+				CE2891AE14001C9C00FC3484 /* FeedTheDogAppDelegate.m */,
+				CE2891B014001C9D00FC3484 /* MainWindow.xib */,
+				CE2891B314001C9D00FC3484 /* MainViewController.h */,
+				CE2891B414001C9D00FC3484 /* MainViewController.m */,
+				CE2891B614001C9D00FC3484 /* MainView.xib */,
+				CE2891B814001C9D00FC3484 /* FlipsideViewController.h */,
+				CE2891B914001C9D00FC3484 /* FlipsideViewController.m */,
+				CE2891BB14001C9D00FC3484 /* FlipsideView.xib */,
+				CE2891A514001C9C00FC3484 /* Supporting Files */,
+			);
+			path = FeedTheDog;
+			sourceTree = "<group>";
+		};
+		CE2891A514001C9C00FC3484 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE2891A614001C9C00FC3484 /* FeedTheDog-Info.plist */,
+				CE2891A714001C9C00FC3484 /* InfoPlist.strings */,
+				CE2891AA14001C9C00FC3484 /* main.m */,
+				CE2891AC14001C9C00FC3484 /* FeedTheDog-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE2891CA14001C9D00FC3484 /* FeedTheDogTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE2891D014001C9D00FC3484 /* FeedTheDogTests.h */,
+				CE2891D214001C9D00FC3484 /* FeedTheDogTests.m */,
+				CE2891CB14001C9D00FC3484 /* Supporting Files */,
+			);
+			path = FeedTheDogTests;
+			sourceTree = "<group>";
+		};
+		CE2891CB14001C9D00FC3484 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE2891CC14001C9D00FC3484 /* FeedTheDogTests-Info.plist */,
+				CE2891CD14001C9D00FC3484 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE28919914001C9C00FC3484 /* FeedTheDog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE2891D614001C9D00FC3484 /* Build configuration list for PBXNativeTarget "FeedTheDog" */;
+			buildPhases = (
+				CE28919614001C9C00FC3484 /* Sources */,
+				CE28919714001C9C00FC3484 /* Frameworks */,
+				CE28919814001C9C00FC3484 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FeedTheDog;
+			productName = FeedTheDog;
+			productReference = CE28919A14001C9C00FC3484 /* FeedTheDog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE2891C114001C9D00FC3484 /* FeedTheDogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE2891D914001C9D00FC3484 /* Build configuration list for PBXNativeTarget "FeedTheDogTests" */;
+			buildPhases = (
+				CE2891BD14001C9D00FC3484 /* Sources */,
+				CE2891BE14001C9D00FC3484 /* Frameworks */,
+				CE2891BF14001C9D00FC3484 /* Resources */,
+				CE2891C014001C9D00FC3484 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE2891C914001C9D00FC3484 /* PBXTargetDependency */,
+			);
+			name = FeedTheDogTests;
+			productName = FeedTheDogTests;
+			productReference = CE2891C214001C9D00FC3484 /* FeedTheDogTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE28919114001C9C00FC3484 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = CE28919414001C9C00FC3484 /* Build configuration list for PBXProject "FeedTheDog" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CE28918F14001C9C00FC3484;
+			productRefGroup = CE28919B14001C9C00FC3484 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE28919914001C9C00FC3484 /* FeedTheDog */,
+				CE2891C114001C9D00FC3484 /* FeedTheDogTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE28919814001C9C00FC3484 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2891A914001C9C00FC3484 /* InfoPlist.strings in Resources */,
+				CE2891B214001C9D00FC3484 /* MainWindow.xib in Resources */,
+				CE2891B714001C9D00FC3484 /* MainView.xib in Resources */,
+				CE2891BC14001C9D00FC3484 /* FlipsideView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE2891BF14001C9D00FC3484 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2891CF14001C9D00FC3484 /* InfoPlist.strings in Resources */,
+				CE2891D114001C9D00FC3484 /* FeedTheDogTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CE2891C014001C9D00FC3484 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE28919614001C9C00FC3484 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2891AB14001C9C00FC3484 /* main.m in Sources */,
+				CE2891AF14001C9C00FC3484 /* FeedTheDogAppDelegate.m in Sources */,
+				CE2891B514001C9D00FC3484 /* MainViewController.m in Sources */,
+				CE2891BA14001C9D00FC3484 /* FlipsideViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE2891BD14001C9D00FC3484 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2891D314001C9D00FC3484 /* FeedTheDogTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE2891C914001C9D00FC3484 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE28919914001C9C00FC3484 /* FeedTheDog */;
+			targetProxy = CE2891C814001C9D00FC3484 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE2891A714001C9C00FC3484 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE2891A814001C9C00FC3484 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CE2891B014001C9D00FC3484 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE2891B114001C9D00FC3484 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		CE2891CD14001C9D00FC3484 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE2891CE14001C9D00FC3484 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE2891D414001C9D00FC3484 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CE2891D514001C9D00FC3484 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE2891D714001C9D00FC3484 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FeedTheDog/FeedTheDog-Prefix.pch";
+				INFOPLIST_FILE = "FeedTheDog/FeedTheDog-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CE2891D814001C9D00FC3484 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FeedTheDog/FeedTheDog-Prefix.pch";
+				INFOPLIST_FILE = "FeedTheDog/FeedTheDog-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CE2891DA14001C9D00FC3484 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FeedTheDog.app/FeedTheDog";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FeedTheDog/FeedTheDog-Prefix.pch";
+				INFOPLIST_FILE = "FeedTheDogTests/FeedTheDogTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		CE2891DB14001C9D00FC3484 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FeedTheDog.app/FeedTheDog";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FeedTheDog/FeedTheDog-Prefix.pch";
+				INFOPLIST_FILE = "FeedTheDogTests/FeedTheDogTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE28919414001C9C00FC3484 /* Build configuration list for PBXProject "FeedTheDog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE2891D414001C9D00FC3484 /* Debug */,
+				CE2891D514001C9D00FC3484 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE2891D614001C9D00FC3484 /* Build configuration list for PBXNativeTarget "FeedTheDog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE2891D714001C9D00FC3484 /* Debug */,
+				CE2891D814001C9D00FC3484 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CE2891D914001C9D00FC3484 /* Build configuration list for PBXNativeTarget "FeedTheDogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE2891DA14001C9D00FC3484 /* Debug */,
+				CE2891DB14001C9D00FC3484 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE28919114001C9C00FC3484 /* Project object */;
+}
