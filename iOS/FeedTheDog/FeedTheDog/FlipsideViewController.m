@@ -7,6 +7,7 @@
 //
 
 #import "FlipsideViewController.h"
+#import "Feeder.h"
 
 @implementation FlipsideViewController
 
@@ -35,6 +36,17 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    urlTextField.text = [[[Feeder sharedFeeder] url] absoluteString];
+    privateKeyTextField.text = [[Feeder sharedFeeder] key];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[Feeder sharedFeeder] saveUrlString:urlTextField.text andPrivateKey:privateKeyTextField.text];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

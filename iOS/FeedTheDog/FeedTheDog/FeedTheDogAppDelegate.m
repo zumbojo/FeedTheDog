@@ -7,6 +7,7 @@
 //
 
 #import "FeedTheDogAppDelegate.h"
+#import "Feeder.h"
 
 #import "MainViewController.h"
 
@@ -21,6 +22,7 @@
     // Add the main view controller's view to the window and display.
     self.window.rootViewController = self.mainViewController;
     [self.window makeKeyAndVisible];
+    [[Feeder sharedFeeder] loadDefaults];
     return YES;
 }
 

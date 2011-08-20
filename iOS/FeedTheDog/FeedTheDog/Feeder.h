@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString *key;
 
 + (Feeder *)sharedFeeder;
+- (void)loadDefaults;
 - (void)saveUrlString:(NSString *)urlString andPrivateKey:(NSString *)privateKey;
 
 @end
