@@ -10,3 +10,9 @@ build/*
 # osx noise
 .DS_Store
 profile
+
+# Xcode 4 additions
+# from https://gist.github.com/708713 
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
