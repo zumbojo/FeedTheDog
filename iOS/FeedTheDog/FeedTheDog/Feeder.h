@@ -20,5 +20,6 @@
 + (Feeder *)sharedFeeder;
 - (void)loadDefaults;
 - (void)saveUrlString:(NSString *)urlString andPrivateKey:(NSString *)privateKey;
+- (void)feed;
 
 @end

@@ -17,5 +17,6 @@
 @property (nonatomic, retain) UIActivityIndicatorView* spinner;
 
 - (IBAction)showInfo:(id)sender;
+- (IBAction)FeedButtonPressed:(id)sender;
 
 @end

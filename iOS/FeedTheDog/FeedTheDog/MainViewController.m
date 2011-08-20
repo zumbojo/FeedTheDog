@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "Feeder.h"
 
 @implementation MainViewController
 
@@ -35,6 +36,11 @@
     [self presentModalViewController:controller animated:YES];
     
     [controller release];
+}
+
+- (IBAction)FeedButtonPressed:(id)sender
+{
+    [[Feeder sharedFeeder] feed];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

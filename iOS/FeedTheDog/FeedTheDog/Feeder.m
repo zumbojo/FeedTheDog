@@ -39,4 +39,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
     [defaults synchronize];
 }
 
+#pragma -
+- (void)feed
+{
+    NSLog(@"feed");
+}
+
 @end
