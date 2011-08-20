@@ -18,8 +18,7 @@ class NoncesController < ApplicationController
       nonce.used_at = DateTime.now
 
       if nonce.save
-        # todo: activate arduino
-
+        activate_arduino
         render :text => "success"
       else
         break
@@ -28,5 +27,12 @@ class NoncesController < ApplicationController
       render :text => "failure"
     end
   end
+
+  private
+    
+    def activate_arduino
+
+    end
+
 
 end

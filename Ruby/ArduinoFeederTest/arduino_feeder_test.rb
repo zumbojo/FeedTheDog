@@ -8,7 +8,8 @@ require 'rubygems'
 require 'serialport'
 
 #params for serial port
-port_str = "/dev/tty.usbserial-A900cesN"  #may be different for you
+# port_str = "/dev/tty.usbserial-A900cesN"  # MacBook
+port_str = "/dev/ttyUSB0"  # kitchen ubuntu box
 baud_rate = 9600
 data_bits = 8
 stop_bits = 1
