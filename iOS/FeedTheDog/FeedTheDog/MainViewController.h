@@ -9,9 +9,12 @@
 #import "FlipsideViewController.h"
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate> {
-
+	IBOutlet UIButton *feedButton;
+	IBOutlet UIActivityIndicatorView* spinner;
 }
 
+@property (nonatomic, retain) UIButton *feedButton;
+@property (nonatomic, retain) UIActivityIndicatorView* spinner;
 
 - (IBAction)showInfo:(id)sender;
 

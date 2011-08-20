@@ -11,6 +11,8 @@
 @implementation FlipsideViewController
 
 @synthesize delegate = _delegate;
+@synthesize urlTextField;
+@synthesize privateKeyTextField;
 
 - (void)didReceiveMemoryWarning
 {

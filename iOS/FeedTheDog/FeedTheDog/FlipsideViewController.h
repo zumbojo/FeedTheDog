@@ -14,9 +14,15 @@
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller;
 @end
 
-@interface FlipsideViewController : UIViewController
+@interface FlipsideViewController : UIViewController {
+    IBOutlet UITextField *urlTextField;
+    IBOutlet UITextField *privateKeyTextField;
+}
 
 @property (nonatomic, assign) id <FlipsideViewControllerDelegate> delegate;
+@property (nonatomic, retain) UITextField *urlTextField;
+@property (nonatomic, retain) UITextField *privateKeyTextField;
+
 
 - (IBAction)done:(id)sender;
 

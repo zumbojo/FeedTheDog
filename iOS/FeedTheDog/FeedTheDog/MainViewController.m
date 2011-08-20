@@ -10,6 +10,8 @@
 
 @implementation MainViewController
 
+@synthesize feedButton;
+@synthesize spinner;
 
 /*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
