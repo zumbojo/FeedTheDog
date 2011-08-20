@@ -7,17 +7,10 @@
 //
 
 #import "Feeder.h"
+#import "SynthesizeSingleton.h"
 
 @implementation Feeder
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
+SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
 
 @end
