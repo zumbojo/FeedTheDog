@@ -25,6 +25,7 @@
 		CE2891CF14001C9D00FC3484 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE2891CD14001C9D00FC3484 /* InfoPlist.strings */; };
 		CE2891D114001C9D00FC3484 /* FeedTheDogTests.h in Resources */ = {isa = PBXBuildFile; fileRef = CE2891D014001C9D00FC3484 /* FeedTheDogTests.h */; };
 		CE2891D314001C9D00FC3484 /* FeedTheDogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2891D214001C9D00FC3484 /* FeedTheDogTests.m */; };
+		CE2891E214003B4700FC3484 /* Feeder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2891E114003B4700FC3484 /* Feeder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		CE2891CE14001C9D00FC3484 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE2891D014001C9D00FC3484 /* FeedTheDogTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedTheDogTests.h; sourceTree = "<group>"; };
 		CE2891D214001C9D00FC3484 /* FeedTheDogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedTheDogTests.m; sourceTree = "<group>"; };
+		CE2891E014003B4700FC3484 /* Feeder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feeder.h; sourceTree = "<group>"; };
+		CE2891E114003B4700FC3484 /* Feeder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feeder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				CE2891B914001C9D00FC3484 /* FlipsideViewController.m */,
 				CE2891BB14001C9D00FC3484 /* FlipsideView.xib */,
 				CE2891A514001C9C00FC3484 /* Supporting Files */,
+				CE2891E014003B4700FC3484 /* Feeder.h */,
+				CE2891E114003B4700FC3484 /* Feeder.m */,
 			);
 			path = FeedTheDog;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				CE2891AF14001C9C00FC3484 /* FeedTheDogAppDelegate.m in Sources */,
 				CE2891B514001C9D00FC3484 /* MainViewController.m in Sources */,
 				CE2891BA14001C9D00FC3484 /* FlipsideViewController.m in Sources */,
+				CE2891E214003B4700FC3484 /* Feeder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
