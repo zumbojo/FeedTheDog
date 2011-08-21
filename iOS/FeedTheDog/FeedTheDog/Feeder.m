@@ -12,6 +12,7 @@
 #import "Feeder.h"
 #import "SynthesizeSingleton.h"
 #import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 #import <CommonCrypto/CommonDigest.h>
 
 
@@ -112,14 +113,30 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
     //    => "mwxhyfuagdrgcoxrjatpsrgqjvdpbxiv"
     //    irb(main):004:0> Nonce.last.signed_nonce
     //    => "df7fb55040efcd9aac8df49f4fb0531365945978412f4b92d7292283a728c0c6"
-    
+    //
     //NSString *signed_nonce = [Feeder sha256:[@"mwxhyfuagdrgcoxrjatpsrgqjvdpbxiv" stringByAppendingString:key]];
     //
     
     NSString *signed_nonce = [Feeder sha256:[unsigned_nonce stringByAppendingString:key]];
         
-    NSLog(@"%@", signed_nonce);
+    //NSLog(@"%@", signed_nonce);
     
+    NSURL *useNonceUrl = [url URLByAppendingPathComponent:@"nonces/use"];
+    __block ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:useNonceUrl];
+    [request setPostValue:signed_nonce forKey:@"signed_nonce"];
+    [request setCompletionBlock:^{
+        // Use when fetching text data
+        NSString *responseString = [request responseString];
+        
+        NSLog(@"%@", responseString);
+        [self.feedInitiatingViewController FeedDidFinish];
+    }];
+    [request setFailedBlock:^{
+        //NSError *error = [request error];
+        // todo
+        [self.feedInitiatingViewController FeedDidFinish];
+    }];
+    [request startAsynchronous];
 }
     
 // from http://stackoverflow.com/questions/4992109/generate-sha256-string-in-objective-c/4995996#4995996
