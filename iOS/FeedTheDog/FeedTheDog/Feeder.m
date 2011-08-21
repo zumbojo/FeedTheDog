@@ -17,6 +17,8 @@
 @interface Feeder ()
 
 - (void)getNonce;
+- (void)getNonceSucceeded:(NSString *)unsigned_nonce;
+- (void)getNonceFailed:(ASIHTTPRequest *)request;
 
 @end
 
@@ -49,7 +51,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
     [defaults synchronize];
 }
 
-#pragma -
+#pragma mark -
 - (void)feedFromViewController:(UIViewController<FeedInitiatingViewController> *)viewController
 {
     self.feedInitiatingViewController = viewController;
@@ -57,8 +59,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
     [self getNonce];
 }
 
-// todo: do the network stuff, when finished call [self.feedInitiatingViewController FeedDidFinish]
-
+#pragma mark HTTP
 - (void)getNonce
 {
     NSURL *createNonceUrl = [url URLByAppendingPathComponent:@"nonces/create"];
@@ -67,34 +68,45 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
         // Use when fetching text data
         NSString *responseString = [request responseString];
         
-        NSLog(@"%@", responseString);
-
-        [self.feedInitiatingViewController FeedDidFinish];
+        if ([responseString length] == 32) {
+            [self getNonceSucceeded:responseString];
+        }
+        else {
+            [self getNonceFailed:request];
+        }
     }];
-    [request setFailedBlock:^{
-        //NSError *error = [request error];
-        
-        // todo: error UI alert view
-        [self.feedInitiatingViewController FeedDidFinish];
-    }];
+    [request setDidFailSelector:@selector(getNonceFailed:)];
     [request startAsynchronous];
 }
 
 - (void)getNonceSucceeded:(NSString *)unsigned_nonce
 {
-    // stub
+    [self.feedInitiatingViewController FeedDidFinish];
+    NSLog(@"%@", unsigned_nonce);
+
+    // todo
+    
 }
 
 - (void)getNonceFailed:(ASIHTTPRequest *)request
 {
-    // stub
+    [self.feedInitiatingViewController FeedDidFinish];
+    
+    NSString *message;
+    NSError *error = [request error];
+    
+    if (error != nil) {
+        message = [error localizedDescription];
+    }
+    else if ([request responseStatusCode] != 200) {
+        message = [NSString stringWithFormat:@"%d", [request responseStatusCode]];
+    }
+    else {
+        message = [request responseString];
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"OH NOES!" message:message delegate:self cancelButtonTitle:@":(" otherButtonTitles:nil];
+    [alert show];
 }
-
-
-
-
-
-
-
 
 @end
