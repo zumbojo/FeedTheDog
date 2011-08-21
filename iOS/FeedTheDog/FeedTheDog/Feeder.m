@@ -21,7 +21,7 @@
 - (void)signAndPostNonce:(NSString *)unsigned_nonce; // "getNonceSucceeded"
 - (void)getNonceFailed:(ASIHTTPRequest *)request;
 
-- (NSString*)sha256:(NSString *)clear;
++ (NSString*)sha256:(NSString *)clear;
 
 @end
 
@@ -105,18 +105,25 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
 
 #pragma mark HTTP: sign, POST nonce
 - (void)signAndPostNonce:(NSString *)unsigned_nonce {
-    NSString *signed_nonce = [self sha256:unsigned_nonce];
+    // Example from rails feeder
+    // REMEMBER: If you roll a new private key, you'll need to create new examples.
+    //
+    //    irb(main):003:0> Nonce.last.unsigned_nonce
+    //    => "mwxhyfuagdrgcoxrjatpsrgqjvdpbxiv"
+    //    irb(main):004:0> Nonce.last.signed_nonce
+    //    => "df7fb55040efcd9aac8df49f4fb0531365945978412f4b92d7292283a728c0c6"
     
+    //NSString *signed_nonce = [Feeder sha256:[@"mwxhyfuagdrgcoxrjatpsrgqjvdpbxiv" stringByAppendingString:key]];
+    //
+    
+    NSString *signed_nonce = [Feeder sha256:[unsigned_nonce stringByAppendingString:key]];
+        
     NSLog(@"%@", signed_nonce);
     
-//    irb(main):003:0> Nonce.last.unsigned_nonce
-//    => "mwxhyfuagdrgcoxrjatpsrgqjvdpbxiv"
-//    irb(main):004:0> Nonce.last.signed_nonce
-//    => "df7fb55040efcd9aac8df49f4fb0531365945978412f4b92d7292283a728c0c6"
 }
     
 // from http://stackoverflow.com/questions/4992109/generate-sha256-string-in-objective-c/4995996#4995996
-- (NSString*)sha256:(NSString *)clear {
++ (NSString*)sha256:(NSString *)clear {
     const char *s=[clear cStringUsingEncoding:NSASCIIStringEncoding];
     NSData *keyData=[NSData dataWithBytes:s length:strlen(s)];
     
