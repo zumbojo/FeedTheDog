@@ -8,6 +8,13 @@
 
 #import "MainViewController.h"
 
+@interface MainViewController ()
+
+- (void)flashSuccessLabel;
+
+@end
+
+
 @implementation MainViewController
 
 @synthesize feedButton;
@@ -69,6 +76,14 @@
 - (void)FeedDidFinishWithSuccess:(bool)success
 {
     [self.spinner stopAnimating];
+    
+    if (success) {
+        [self flashSuccessLabel];
+    }
+}
+
+- (void)flashSuccessLabel {
+    // stub
 }
 
 @end
