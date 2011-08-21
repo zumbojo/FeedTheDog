@@ -21,6 +21,6 @@
 - (IBAction)FeedButtonPressed:(id)sender;
 
 // FeedInitiatingViewController:
-- (void)FeedDidFinish;
+- (void)FeedDidFinishWithSuccess:(bool)success;
 
 @end

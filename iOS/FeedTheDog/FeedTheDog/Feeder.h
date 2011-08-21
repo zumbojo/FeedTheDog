@@ -33,6 +33,6 @@
 
 @optional
 
-- (void)FeedDidFinish;
+- (void)FeedDidFinishWithSuccess:(bool)success;
 
 @end

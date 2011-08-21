@@ -20,7 +20,7 @@
 
 - (void)getNonce;
 - (void)signAndPostNonce:(NSString *)unsigned_nonce; // "getNonceSucceeded"
-- (void)getNonceFailed:(ASIHTTPRequest *)request;
+- (void)nonceRequestFailed:(ASIHTTPRequest *)request;
 
 + (NSString*)sha256:(NSString *)clear;
 
@@ -69,23 +69,22 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
     NSURL *createNonceUrl = [url URLByAppendingPathComponent:@"nonces/create"];
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:createNonceUrl];
     [request setCompletionBlock:^{
-        // Use when fetching text data
         NSString *responseString = [request responseString];
         
         if ([responseString length] == 32) {
             [self signAndPostNonce:responseString];
         }
         else {
-            [self getNonceFailed:request];
+            [self nonceRequestFailed:request];
         }
     }];
-    [request setDidFailSelector:@selector(getNonceFailed:)];
+    [request setDidFailSelector:@selector(nonceRequestFailed:)];
     [request startAsynchronous];
 }
 
-- (void)getNonceFailed:(ASIHTTPRequest *)request
+- (void)nonceRequestFailed:(ASIHTTPRequest *)request
 {
-    [self.feedInitiatingViewController FeedDidFinish];
+    [self.feedInitiatingViewController FeedDidFinishWithSuccess:NO];
     
     NSString *message;
     NSError *error = [request error];
@@ -107,7 +106,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
 #pragma mark HTTP: sign, POST nonce
 - (void)signAndPostNonce:(NSString *)unsigned_nonce {
     // Example from rails feeder
-    // REMEMBER: If you roll a new private key, you'll need to create new examples.
+    // REMEMBER: If you roll a new private key, you will need to create new examples.
     //
     //    irb(main):003:0> Nonce.last.unsigned_nonce
     //    => "mwxhyfuagdrgcoxrjatpsrgqjvdpbxiv"
@@ -118,24 +117,24 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
     //
     
     NSString *signed_nonce = [Feeder sha256:[unsigned_nonce stringByAppendingString:key]];
-        
     //NSLog(@"%@", signed_nonce);
     
     NSURL *useNonceUrl = [url URLByAppendingPathComponent:@"nonces/use"];
     __block ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:useNonceUrl];
     [request setPostValue:signed_nonce forKey:@"signed_nonce"];
     [request setCompletionBlock:^{
-        // Use when fetching text data
         NSString *responseString = [request responseString];
         
-        NSLog(@"%@", responseString);
-        [self.feedInitiatingViewController FeedDidFinish];
+        if ([responseString isEqualToString:@"success"]) {
+            [self.feedInitiatingViewController FeedDidFinishWithSuccess:YES];
+            
+            // todo: flash some success sign or something
+        }
+        else {
+            [self nonceRequestFailed:request];
+        }
     }];
-    [request setFailedBlock:^{
-        //NSError *error = [request error];
-        // todo
-        [self.feedInitiatingViewController FeedDidFinish];
-    }];
+    [request setDidFailSelector:@selector(nonceRequestFailed:)];
     [request startAsynchronous];
 }
     

@@ -66,7 +66,7 @@
 }
 
 #pragma mark FeedInitiatingViewController:
-- (void)FeedDidFinish
+- (void)FeedDidFinishWithSuccess:(bool)success
 {
     [self.spinner stopAnimating];
 }
