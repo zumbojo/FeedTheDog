@@ -19,6 +19,7 @@
 
 @synthesize feedButton;
 @synthesize spinner;
+@synthesize successLabel;
 
 /*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -83,7 +84,14 @@
 }
 
 - (void)flashSuccessLabel {
-    // stub
+    [self.successLabel setAlpha:1];
+    
+    // from http://stackoverflow.com/questions/2591363/uilabel-fade-in-fade-out-question/2591473#2591473
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDuration:2.0];
+    [self.successLabel setAlpha:0];
+    [UIView commitAnimations];
 }
 
 @end
