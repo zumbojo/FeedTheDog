@@ -12,13 +12,16 @@
 #import "Feeder.h"
 #import "SynthesizeSingleton.h"
 #import "ASIHTTPRequest.h"
+#import <CommonCrypto/CommonDigest.h>
 
 
 @interface Feeder ()
 
 - (void)getNonce;
-- (void)getNonceSucceeded:(NSString *)unsigned_nonce;
+- (void)signAndPostNonce:(NSString *)unsigned_nonce; // "getNonceSucceeded"
 - (void)getNonceFailed:(ASIHTTPRequest *)request;
+
+- (NSString*)sha256:(NSString *)clear;
 
 @end
 
@@ -59,7 +62,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
     [self getNonce];
 }
 
-#pragma mark HTTP
+#pragma mark HTTP: GET nonce
 - (void)getNonce
 {
     NSURL *createNonceUrl = [url URLByAppendingPathComponent:@"nonces/create"];
@@ -69,7 +72,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
         NSString *responseString = [request responseString];
         
         if ([responseString length] == 32) {
-            [self getNonceSucceeded:responseString];
+            [self signAndPostNonce:responseString];
         }
         else {
             [self getNonceFailed:request];
@@ -77,15 +80,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
     }];
     [request setDidFailSelector:@selector(getNonceFailed:)];
     [request startAsynchronous];
-}
-
-- (void)getNonceSucceeded:(NSString *)unsigned_nonce
-{
-    [self.feedInitiatingViewController FeedDidFinish];
-    NSLog(@"%@", unsigned_nonce);
-
-    // todo
-    
 }
 
 - (void)getNonceFailed:(ASIHTTPRequest *)request
@@ -107,6 +101,33 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"OH NOES!" message:message delegate:self cancelButtonTitle:@":(" otherButtonTitles:nil];
     [alert show];
+}
+
+#pragma mark HTTP: sign, POST nonce
+- (void)signAndPostNonce:(NSString *)unsigned_nonce {
+    NSString *signed_nonce = [self sha256:unsigned_nonce];
+    
+    NSLog(@"%@", signed_nonce);
+    
+//    irb(main):003:0> Nonce.last.unsigned_nonce
+//    => "mwxhyfuagdrgcoxrjatpsrgqjvdpbxiv"
+//    irb(main):004:0> Nonce.last.signed_nonce
+//    => "df7fb55040efcd9aac8df49f4fb0531365945978412f4b92d7292283a728c0c6"
+}
+    
+// from http://stackoverflow.com/questions/4992109/generate-sha256-string-in-objective-c/4995996#4995996
+- (NSString*)sha256:(NSString *)clear {
+    const char *s=[clear cStringUsingEncoding:NSASCIIStringEncoding];
+    NSData *keyData=[NSData dataWithBytes:s length:strlen(s)];
+    
+    uint8_t digest[CC_SHA256_DIGEST_LENGTH]={0};
+    CC_SHA256(keyData.bytes, keyData.length, digest);
+    NSData *out=[NSData dataWithBytes:digest length:CC_SHA256_DIGEST_LENGTH];
+    NSString *hash=[out description];
+    hash = [hash stringByReplacingOccurrencesOfString:@" " withString:@""];
+    hash = [hash stringByReplacingOccurrencesOfString:@"<" withString:@""];
+    hash = [hash stringByReplacingOccurrencesOfString:@">" withString:@""];
+    return hash;
 }
 
 @end
