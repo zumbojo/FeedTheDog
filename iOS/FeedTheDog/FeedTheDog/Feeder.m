@@ -127,8 +127,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
         
         if ([responseString isEqualToString:@"success"]) {
             [self.feedInitiatingViewController FeedDidFinishWithSuccess:YES];
-            
-            // todo: flash some success sign or something
         }
         else {
             [self nonceRequestFailed:request];
