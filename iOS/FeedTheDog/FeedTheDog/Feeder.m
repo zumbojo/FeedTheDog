@@ -11,6 +11,15 @@
 
 #import "Feeder.h"
 #import "SynthesizeSingleton.h"
+#import "ASIHTTPRequest.h"
+
+
+@interface Feeder ()
+
+- (void)getNonce;
+
+@end
+
 
 @implementation Feeder
 
@@ -44,12 +53,48 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(Feeder);
 - (void)feedFromViewController:(UIViewController<FeedInitiatingViewController> *)viewController
 {
     self.feedInitiatingViewController = viewController;
-    
-    // for testing:
-    NSLog(@"feed");
-    [self.feedInitiatingViewController FeedDidFinish];
+
+    [self getNonce];
 }
 
 // todo: do the network stuff, when finished call [self.feedInitiatingViewController FeedDidFinish]
+
+- (void)getNonce
+{
+    NSURL *createNonceUrl = [url URLByAppendingPathComponent:@"nonces/create"];
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:createNonceUrl];
+    [request setCompletionBlock:^{
+        // Use when fetching text data
+        NSString *responseString = [request responseString];
+        
+        NSLog(@"%@", responseString);
+
+        [self.feedInitiatingViewController FeedDidFinish];
+    }];
+    [request setFailedBlock:^{
+        //NSError *error = [request error];
+        
+        // todo: error UI alert view
+        [self.feedInitiatingViewController FeedDidFinish];
+    }];
+    [request startAsynchronous];
+}
+
+- (void)getNonceSucceeded:(NSString *)unsigned_nonce
+{
+    // stub
+}
+
+- (void)getNonceFailed:(ASIHTTPRequest *)request
+{
+    // stub
+}
+
+
+
+
+
+
+
 
 @end
