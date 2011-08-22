@@ -1,7 +1,7 @@
 // KML
 // 2011-08-06
 // SCL
-// 2011-08-19
+// 2011-08-21
 //
 // Partially based on sketch at http://wiring.org.co/learning/basics/rgbled.html
 // Use the same wiring diagram.
