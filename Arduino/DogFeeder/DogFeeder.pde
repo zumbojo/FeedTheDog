@@ -6,6 +6,7 @@
 //
 // And on the serial switching example at http://arduino.cc/en/Tutorial/SwitchCase2
 
+/*
 int RED_PIN = 4;    // RED pin of the LED to PWM pin 4 
 int GREEN_PIN = 5;  // GREEN pin of the LED to PWM pin 5
 int BLUE_PIN = 6;   // BLUE pin of the LED to PWM pin 6
@@ -13,17 +14,31 @@ int MAX = 255;
 int OFF = 0;
 int active_pin = RED_PIN; // start out with red
 
+
 void set_lights(int r, int g, int b);
 void flash_ready_lights();
 void feed_the_dog();
+*/
+
+boolean feed = false;
 
 void setup() {
+  /*
   pinMode(RED_PIN, OUTPUT); 
   pinMode(GREEN_PIN, OUTPUT); 
   pinMode(BLUE_PIN, OUTPUT); 
+  */
+  
+  pinMode(6,INPUT);
+  pinMode(7,INPUT);
+  pinMode(13,OUTPUT);
+  digitalWrite(13,LOW);
+  
   Serial.begin(9600);
   
+  /*
   flash_ready_lights();
+  */
 }
 
 void loop() {
@@ -32,14 +47,30 @@ void loop() {
     
     switch (inByte) {
     case 1:    
-      feed_the_dog();
+      // feed_the_dog();
+      feed = true;
       break;
     default:
       break;
     } 
   }
+  
+  if(digitalRead(7)==HIGH){
+    digitalWrite(13,HIGH);
+  } else {
+    digitalWrite(13,LOW);
+  }
+  if(digitalRead(6)==HIGH) {
+    feed = true;
+  }
+  if(feed==true) {
+    feed = false;
+    digitalWrite(13,HIGH);
+    delay(500);
+  }
 }
 
+/*
 void set_lights(int r, int g, int b) {
   analogWrite(RED_PIN, r);
   analogWrite(GREEN_PIN, g);
@@ -73,4 +104,5 @@ void feed_the_dog() {
   // light up this new active pin:
   analogWrite(active_pin, MAX);
 }
+*/
 
