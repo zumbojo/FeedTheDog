@@ -1,14 +1,53 @@
 Notes:
 
+==========
+Arduino/LEDDummyFeeder
+==========
+
 - Prevent reset on serial traffic by connecting a 120 ohm resistor
    to RESET and 5V 
    - Note that this will prevent uploading while the resistor is connected.
+   - From http://www.arduino.cc/playground/Main/DisablingAutoResetOnSerialConnection
 
 
-- Roll yourself a private key, something along the lines of:
-PRIVATE_KEY = "dontactuallyusethisstringyoupillock"
-  (you can roll your own in irb using
-(0..31).collect { ('a'..'z').to_a[rand(26)] }.join
-  )
+==========
+Arduino/DogFeeder
+==========
+
+- Resistor trick above is NOT necessary on account of reseting on restart not being an issue.
+
+
+==========
+Rails/feeder
+==========
+
+- Roll yourself a private key using
+  (0..31).collect { ('a'..'z').to_a[rand(26)] }.join
   and throw it in (the gitignored file) config/initializers/constants.rb
   # idea from http://stackoverflow.com/questions/1107782/wheres-the-best-place-to-define-a-constant-in-a-ruby-on-rails-application/1108064#1108064
+  along with the serial port you are using.  Your constants.rb file should end up looking something like:
+
+PRIVATE_KEY = "dontactuallyusethisstringyoupillock"
+SERIAL_PORT = "/dev/ttyUSB0"
+
+- Typical commands to use after cloning the repo:
+  - [Create constants.rb]
+  - bundle install
+  - rake db:migrate
+  - rails server -d
+
+
+==========
+Notes on getting feeder running on Windows
+==========
+
+Used the Windows installer from http://railsinstaller.org/  It worked amazingly well.
+
+Followed these instructions:
+
+http://curiosity.roguepenguin.net/?p=35
+
+Which may have built and installed an older, Windows compatible binary version of the gem (0.6).
+
+feeder was complaining that it couldn't find serialport 1.0.4, so I renamed the Gemfile.lock to Gemfile.lock.bak, thinking I'd have to run bundler again or something.  But on a lark, I just tried rake db:migrate again, and it worked.  Some part of this excruciating process probably wasn't necessary.
+
