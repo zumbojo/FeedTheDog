@@ -34,13 +34,13 @@ class NoncesController < ApplicationController
       # port_str = "/dev/tty.usbserial-A900cesN"  # MacBook
       # port_str = "/dev/tty.usbmodem1d11"  # MacBook
       # port_str = "/dev/ttyUSB0"  # kitchen ubuntu box
-      port_str = "COM4" # Steve's 7 laptop
+      # port_str = "COM4" # Steve's 7 laptop
       baud_rate = 9600
       data_bits = 8
       stop_bits = 1
       parity = SerialPort::NONE
 
-      sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
+      sp = SerialPort.new(SERIAL_PORT, baud_rate, data_bits, stop_bits, parity)
 
       sp.putc(1);
 
